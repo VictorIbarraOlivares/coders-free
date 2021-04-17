@@ -1,4 +1,5 @@
 <x-app-layout>
+    <!-- Portada -->
     <section class="bg-cover" style="background-image: url({{ asset('img/home/learn-3653430_1920.jpg') }})">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36"><!-- para centrar, sin el py-36 -->
             <div class="w-full md:w-3/4 lg:w-1/2" >
@@ -118,7 +119,7 @@
                             <p class="text-sm text-gray-500 ml-auto"><i class="fa fa-users"></i>({{ $course->students_count }})</p>
                         </div>
 
-                        <a href="{{ route('course.show', $course) }}" class="block text-center w-full mt-4 focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Más información</a>
+                        <a href="{{ route('courses.show', $course) }}" class="block text-center w-full mt-4 focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Más información</a>
                     </div>
                 </article>
             @endforeach
