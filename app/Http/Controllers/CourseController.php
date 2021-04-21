@@ -14,6 +14,13 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        return view('courses.show', compact('course'));
+        $similares = Course::where('category_id', $course->category_id)
+        ->where('id', '!=', $course->id)
+        ->where('status', 3)
+        ->latest('id')
+        ->take(5)
+        ->get();
+
+        return view('courses.show', compact('course', 'similares'));
     }
 }
