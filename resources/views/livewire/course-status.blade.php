@@ -3,6 +3,10 @@
         <div class="col-span-2">
             {!! $current->iframe !!}
             {{ $current->name }}
+
+            <p>Indice : {{ $this->index }}</p>
+            <p>previous : {{ $this->previous != null ?? $this->previous->id }}</p>
+            <p>next : {{ $this->next != null ?? $this->next->id }}</p>
         </div>
 
         <div class="card">
@@ -27,7 +31,7 @@
                             <ul>
                                 @foreach ($section->lessons as $lesson)
                                     <li>
-                                        <a>{{ $lesson->name }}
+                                        <a class="cursor-pointer" wire:click='changeLesson({{ $lesson }})' >{{ $lesson->id }}
                                             @if ($lesson->complete)
                                                 (Completado)
                                             @endif
