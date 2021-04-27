@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeController;
+use App\Http\Livewire\InstructorCourses;
 
 /*
 |--------------------------------------------------------------------------
-| Admin Routes
+| Instructor Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -14,4 +14,5 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
-Route::get('', [HomeController::class, 'index']);
+Route::redirect('', 'instructor/courses');
+Route::get('courses', InstructorCourses::class)->name('courses.index');
