@@ -3,11 +3,18 @@
 @section('title', 'Coders Free')
 
 @section('content_header')
-    <h1>Coders Free</h1>
+    <h1>Crear nuevo rol</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'admin.roles.store', 'autocomplete' => 'off']) !!}
+               @include('admin.roles.partials.form')
+               {!! Form::submit('Crear Role', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('css')
