@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:Listar role')->only('index', 'show');
+        $this->middleware('can:Crear role')->only('create', 'store');
+        $this->middleware('can:Editar role')->only('edit', 'update');
+        $this->middleware('can:Eliminar role')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -91,9 +100,10 @@ class RoleController extends Controller
             'permissions' => 'required',
         ]);
 
+        $role->update([
+            'name' => $request->name
+        ]);
         $role->permissions()->sync($request->permissions);
-        $role->name = $request->name;
-        $role->save();
 
         return redirect()->route('admin.roles.edit', $role)
         ->with('info' , 'El rol se actualizo satisfactoriamente');

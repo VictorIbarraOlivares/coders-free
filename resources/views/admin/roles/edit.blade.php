@@ -14,8 +14,8 @@
     @endif
     <div class="card">
         <div class="card-body">
-            {!! Form::model($role, ['route' => ['admin.roles.update', $role], 'method' => 'put'. 'autocomplete' => 'off']) !!}
-               @include('admin.roles.partials.form')
+            {!! Form::model($role, ['route' => ['admin.roles.update', $role], 'method' => 'put', 'autocomplete' => 'off']) !!}
+                @include('admin.roles.partials.form')
                {!! Form::submit('Actualizar Role', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
         </div>
