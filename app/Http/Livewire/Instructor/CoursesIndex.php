@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Instructor;
 
 use App\Models\Course;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class InstructorCourses extends Component
+class CoursesIndex extends Component
 {
     use WithPagination;
     public $search = '';
@@ -20,6 +20,6 @@ class InstructorCourses extends Component
     {
         $courses = Course::where('title', 'LIKE', "%{$this->search}%")
         ->where('user_id', auth()->user()->id )->paginate(8);
-        return view('livewire.instructor-courses', ['courses' => $courses]);
+        return view('livewire.instructor.courses-index', ['courses' => $courses]);
     }
 }
