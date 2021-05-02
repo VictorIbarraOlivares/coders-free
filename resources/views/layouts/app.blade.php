@@ -43,5 +43,9 @@
         @stack('modals')
 
         @livewireScripts
+
+        @isset( $js )
+            {{ $js }} {{-- slot con nombre --}}
+        @endisset
     </body>
 </html>

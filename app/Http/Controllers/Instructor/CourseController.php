@@ -12,6 +12,7 @@ class CourseController extends Controller
     public function __construct()
     {
         $this->middleware('can:Leer cursos')->only('index');
+        $this->middleware('can:Editar cursos')->only('edit', 'update');
     }
     /**
      * Display a listing of the resource.
