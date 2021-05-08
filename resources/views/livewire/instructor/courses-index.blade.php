@@ -1,8 +1,9 @@
 <div class="container py-8">
     <x-table-responsive>
 
-        <div class="px-6 py-4">
-            <input wire:model='search' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-400" placeholder="Ingrese el nombre de un curso ...">
+        <div class="px-6 py-4 flex">
+            <input wire:model='search' class="shadow appearance-none border rounded flex-1 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-400" placeholder="Ingrese el nombre de un curso ...">
+            <a class="btn btn-danger ml-2" href="{{ route('instructor.courses.create') }}">Crear nuevo curso</a>
         </div>
 
         <table class="min-w-full divide-y divide-gray-200">
