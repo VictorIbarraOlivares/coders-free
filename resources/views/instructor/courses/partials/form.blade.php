@@ -56,6 +56,9 @@
     </figure>
     <div>
         <p class="mb-2">ada as ddaar3rer sg gsdfgh shysrhsfds df fdsg</p>
-        {!! Form::file('file', ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-400 block w-full mt-1', 'id' => 'file']) !!}
+        {!! Form::file('file', ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-400 block w-full mt-1'. ($errors->has('file') ? ' border-red-600' : ''), 'id' => 'file', 'accept' => 'image/*']) !!}
+        @error('file')
+            <strong class="text-xs text-red-600">{{ $message }}</strong>
+        @enderror
     </div>
 </div>

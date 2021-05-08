@@ -57,6 +57,7 @@ class CourseController extends Controller
             'category_id' => 'required',
             'level_id' => 'required',
             'price_id' => 'required',
+            'file' => 'image',
         ]);
         $course = Course::create( $request->all() );
         if ( $request->file('file') ) {
@@ -110,6 +111,7 @@ class CourseController extends Controller
             'category_id' => 'required',
             'level_id' => 'required',
             'price_id' => 'required',
+            'file' => 'image',
         ]);
         $course->update( $request->all() );
         if ( $request->file('file') ) {
