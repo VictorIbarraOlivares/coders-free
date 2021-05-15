@@ -47,10 +47,10 @@
                         </div>
 
                         <div class="mb-4">
-                            @livewire('instructor.lesson-description', ['lesson' => $item], key($item->id))
+                            @livewire('instructor.lesson-description', ['lesson' => $item], key('lesson-description'. $item->id))
                         </div>
                         <div>
-                            @livewire('instructor.lesson-resources', ['lesson' => $item], key($item->id))
+                            @livewire('instructor.lesson-resources', ['lesson' => $item], key('lesson-resources'. $item->id))
                         </div>
                     </div>
                 @endif
