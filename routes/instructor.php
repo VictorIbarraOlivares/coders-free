@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('', 'instructor/courses');
 Route::resource('courses', CourseController::class)->names('courses');
-Route::get('courses/{course}/curriculum', CourseCurriculum::class)->name('courses.curriculum');
+Route::get('courses/{course}/curriculum', CourseCurriculum::class)->middleware('can:Actualizar cursos')->name('courses.curriculum');
 Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('courses.goals');
-Route::get('courses/{course}/students', CourseStudents::class)->name('courses.students');
+Route::get('courses/{course}/students', CourseStudents::class)->middleware('can:Actualizar cursos')->name('courses.students');

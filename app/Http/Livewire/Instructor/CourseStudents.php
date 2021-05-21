@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Instructor;
 use App\Models\Course;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CourseStudents extends Component
 {
     use WithPagination;
+    use AuthorizesRequests;
 
     public $course;
     public $search = "";
@@ -16,6 +18,7 @@ class CourseStudents extends Component
     public function mount(Course $course)
     {
         $this->course = $course;
+        $this->authorize('dicatated', $course);
     }
 
     public function render()
