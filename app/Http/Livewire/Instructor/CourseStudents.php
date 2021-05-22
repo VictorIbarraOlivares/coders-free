@@ -27,7 +27,7 @@ class CourseStudents extends Component
         ->where('name', 'LIKE', "%{$this->search}%")
         ->orWhere('email', 'LIKE', "%{$this->search}%")
         ->paginate(2);
-        return view('livewire.instructor.course-students', compact('students'))->layout('layouts.instructor');
+        return view('livewire.instructor.course-students', compact('students'))->layout('layouts.instructor', ['course' => $this->course]);
     }
 
     public function updatingSearch()

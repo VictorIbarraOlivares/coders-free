@@ -1,8 +1,4 @@
 <div>
-    <x-slot name="course">
-        {{ $course->slug }}
-    </x-slot>
-
     <h1 class="text-2xl font-bold mb-4">ESTUDIANTES DEL CURSO</h1>
 
     <x-table-responsive>
@@ -48,7 +44,11 @@
                 @empty
                     <tr>
                         <th colspan="5" scope="col" class="relative px-6 py-3 items-center">
-                            <span>No hay registros que coincidan con la búsqueda "{{ $search }}"</span>
+                            @if ( $search )
+                                <span>No hay registros que coincidan con la búsqueda "{{ $search }}"</span>
+                            @else
+                                <span>No hay registros</span>
+                            @endif
                         </th>
                     </tr>
                 @endforelse

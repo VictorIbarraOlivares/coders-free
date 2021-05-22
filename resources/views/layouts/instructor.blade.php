@@ -35,10 +35,10 @@
             @endif --}}
 
             <!-- Page Content -->
-            <div class="container py-8 grid grid-cols-5">
+            <div class="container py-8 grid grid-cols-5 gap-6">
                 <aside>
                     <h1 class="font-bold text-lg mb-4">Edición del curso</h1>
-                    <ul class="text-sm text-gray-600">
+                    <ul class="text-sm text-gray-600 mb-4">
                         <li class="leading-7 mb-1 border-l-4 pl-2 
                             @routeIs('instructor.courses.edit', $course) border-indigo-400 @else border-transparent @endif ">
                             <a href="{{ route('instructor.courses.edit', $course) }}">Información del curso</a>
@@ -59,6 +59,24 @@
                             <a href="{{ route('instructor.courses.students', $course) }}">Estudiantes</a>
                         </li>
                     </ul>
+                    @if ($course->status == App\Models\Course::BORRADOR)
+                        <form action="{{ route('instructor.courses.status', $course) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger text-sm" >Solicitar revisión</button>
+                        </form>
+                    @elseif ($course->status == App\Models\Course::REVISION)
+                        <div class="card text-gray-500">
+                            <div class="card-body text-sm">
+                                Este curso de encuentra en revisión
+                            </div>
+                        </div>
+                    @elseif ($course->status == App\Models\Course::PUBLICADO)
+                        <div class="card text-gray-500">
+                            <div class="card-body text-sm">
+                                Este curso se encuentra publicado
+                            </div>
+                        </div>
+                    @endif
                 </aside>
         
                 <div class="card col-span-4">
