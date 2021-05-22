@@ -42,4 +42,13 @@ class CoursePolicy
             return false;
         }
     }
+
+    public function revision(User $user, Course $course)
+    {
+        if ( $course->status == Course::REVISION ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
