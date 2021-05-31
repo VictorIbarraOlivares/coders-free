@@ -113,8 +113,10 @@
 
                     <form action="{{ route('admin.courses.approved', $course) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-danger btn-block mt-4">Aprobar curso</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Aprobar curso</button>
                     </form>
+
+                    <a class="btn btn-danger btn-block mt-4" href="{{ route('admin.courses.observation', $course) }}" >Observar curso</a>
 
                 </div>
             </section>

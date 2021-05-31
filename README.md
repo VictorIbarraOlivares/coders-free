@@ -73,3 +73,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 4° In terminal: php artisan storage:link
 
 5° In terminal: php artisan migrate:fresh --seed
+
+6° For test email (queue), in terminal: php artisan queue:work
