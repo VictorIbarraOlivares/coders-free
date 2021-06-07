@@ -14,13 +14,21 @@
                 </div>
             @endif
 
-            <div wire:click='completed'  class="flex items-center mt-4 cursor-pointer">
-                @if ( $current->complete )
-                    <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
-                @else
-                    <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
+            <div class="flex justify-between mt-4">
+                <div wire:click='completed'  class="flex items-center cursor-pointer">
+                    @if ( $current->complete )
+                        <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
+                    @else
+                        <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
+                    @endif
+                    <p class="text-sm ml-2">Marcar esta unidad como culminada</p>
+                </div>
+                @if ($current->resource)
+                    <div wire:click='download' class="flex items-center text-gray-600 cursor-pointer hover:text-blue-400">
+                        <i class="fas fa-download text-lg"></i>
+                        <p class="text-sm ml-2">Descargar recurso</p>
+                    </div>
                 @endif
-                <p class="text-sm ml-2">Marcar esta unidad como culminada</p>
             </div>
 
             <div class="card mt-2">
